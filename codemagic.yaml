@@ -1,0 +1,70 @@
+workflows:
+  ios-testflight:
+    name: Days of Ruin - TestFlight (App Store signing)
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    integrations:
+      app_store_connect: Codemagic
+    environment:
+      xcode: latest
+      node: '24'
+      vars:
+        HOMEBREW_NO_AUTO_UPDATE: '1'
+        HOMEBREW_NO_INSTALL_CLEANUP: '1'
+        # altool cannot resolve a brand new bundle id on its own; the app
+        # record is Days of Ruin (created 2026-09-12).
+        APP_STORE_APPLE_ID: '6811437685'
+      # Codemagic validates signing against its own stored identities, not
+      # against App Store Connect, so distribution_type/bundle_identifier
+      # fails for a fresh bundle id with "No matching profiles found".
+      # The profile was created in ASC on 2026-09-12 ("DaysOfRuin
+      # ios_app_store 20260912") and uploaded here under the name below;
+      # the certificate is the only one Codemagic holds a private key for.
+      ios_signing:
+        provisioning_profiles:
+          - days-of-ruin-appstore-20260912
+        certificates:
+          - gosafehome-distribution
+    scripts:
+      - name: Preflight and generate project
+        script: |
+          set -euo pipefail
+          npm run check
+          if ! command -v xcodegen >/dev/null; then brew install xcodegen; fi
+          xcodegen generate
+      - name: Use the Codemagic build number
+        script: |
+          set -euo pipefail
+          sed -i '' "s/CURRENT_PROJECT_VERSION = [0-9]*;/CURRENT_PROJECT_VERSION = $BUILD_NUMBER;/g" DaysOfRuin.xcodeproj/project.pbxproj
+          grep -c "CURRENT_PROJECT_VERSION = $BUILD_NUMBER;" DaysOfRuin.xcodeproj/project.pbxproj
+      - name: Set up App Store signing
+        script: xcode-project use-profiles
+      - name: Archive for TestFlight
+        script: |
+          set -euo pipefail
+          xcode-project build-ipa --project DaysOfRuin.xcodeproj --scheme DaysOfRuin --config Release
+      - name: Verify signed IPA
+        script: |
+          set -euo pipefail
+          IPA_PATH="$(find build/ios/ipa -maxdepth 1 -name '*.ipa' -type f | head -n 1)"
+          test -n "$IPA_PATH"
+          VERIFY_DIR="$(mktemp -d)"
+          unzip -q "$IPA_PATH" -d "$VERIFY_DIR"
+          APP_PATH="$(find "$VERIFY_DIR/Payload" -maxdepth 1 -name '*.app' -type d | head -n 1)"
+          test -n "$APP_PATH"
+          APP_INFO="$APP_PATH/Info.plist"
+          test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$APP_INFO")" = "com.sebastianbuergy.daysofruin"
+          test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$APP_INFO")" = "$BUILD_NUMBER"
+          test "$(/usr/libexec/PlistBuddy -c 'Print :ITSAppUsesNonExemptEncryption' "$APP_INFO")" = "false"
+          test -f "$APP_PATH/web/index.html"
+          test -f "$APP_PATH/web/img/logo.png"
+          test -f "$APP_PATH/web/fonts/fonts.css"
+          codesign --verify --deep --strict "$APP_PATH"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        submit_to_app_store: false

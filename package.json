@@ -1,0 +1,7 @@
+{
+  "name": "days-of-ruin-ios-verification",
+  "private": true,
+  "scripts": {
+    "check": "node scripts/preflight.cjs"
+  }
+}
