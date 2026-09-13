@@ -5,13 +5,13 @@
     {
       "date": "2026-10-03",
       "time": "20:00",
-      "title": "Core Night - EP Release Born in Dorian",
-      "venue": "Core Night - EP Release Born in Dorian",
+      "title": "Core Night – EP Release Born in Dorian",
+      "venue": "Moshpit Music Club",
       "city": "Naters",
-      "lineup": "Days Of Ruin, Born in Dorian, Still Untitled",
+      "lineup": "Born in Dorian, Still Untitled, Days of Ruin, With Heart",
       "note": "Türöffnung 20:00.",
       "tickets": "https://www.bandsintown.com/t/108644016?app_id=js_daysofruin.ch&came_from=267&utm_medium=api&utm_source=public_api&utm_campaign=ticket",
-      "url": "https://www.bandsintown.com/e/108644016?app_id=js_daysofruin.ch&came_from=267&utm_medium=api&utm_source=public_api&utm_campaign=event"
+      "url": "https://www.bandsintown.com/e/108644016"
     },
     {
       "date": "2026-11-07",
@@ -28,34 +28,34 @@
       "date": "2026-11-28",
       "time": "15:30",
       "title": "Ruination Metal Fest 4",
-      "venue": "Ruination Metal Fest 4",
+      "venue": "Kulturhalle Sägegasse",
       "city": "Burgdorf",
-      "lineup": "Days Of Ruin, NOVARA NYX, Born in Dorian, Ophelia's Eye, I, Delusionist, Devils Rage",
+      "lineup": "Antipodes, Devils Rage, Born in Dorian, Ophelia's Eye, Novara Nyx, Days of Ruin, I Delusionist, The Boyz from Karma",
       "note": "Eigenes Festival der Band. Days of Ruin 21:30–22:15. VVK 30 CHF, AK ab 18:00 35 CHF.",
       "tickets": "https://eventfrog.ch/de/p/konzerte/hard-rock-heavy-metal/ruination-metal-fest-4-kulturhalle-saegegasse-in-burgdorf-7407728967950568280.html",
-      "url": "https://www.bandsintown.com/e/108644119?app_id=js_daysofruin.ch&came_from=267&utm_medium=api&utm_source=public_api&utm_campaign=event"
+      "url": "https://www.daysofruin.ch/ruination-metal-fest"
     },
     {
       "date": "2026-12-05",
       "time": "20:00",
-      "title": "Days of Ruin, Sons of Coherence & Arcaine",
-      "venue": "Days of Ruin, Sons of Coherence & Arcaine ",
+      "title": "ArcAine, Days of Ruin & Sons of Coherence",
+      "venue": "Met-Bar",
       "city": "Lenzburg",
-      "lineup": "Days Of Ruin, Sons of coherence, ArcAine",
+      "lineup": "Sons of Coherence, Days of Ruin, ArcAine",
       "note": "Doors 20:00, Start 20:30. Eintritt 20 CHF.",
       "tickets": "https://eventfrog.ch/de/p/konzerte/hard-rock-heavy-metal/arcaine-days-of-ruin-sons-of-coherence-live-7487565935789789708.html",
       "url": "https://www.bandsintown.com/e/108644138?app_id=js_daysofruin.ch&came_from=267&utm_medium=api&utm_source=public_api&utm_campaign=event"
     },
     {
       "date": "2026-12-12",
-      "time": "17:00",
+      "time": "17:30",
       "title": "Nyon's on Fire",
-      "venue": "Nyon's on Fire",
+      "venue": "Usine à Gaz, Salle 2",
       "city": "Nyon",
-      "lineup": "Days Of Ruin, Impure Wilhelmina, BLOWN BAND, Hey Satan",
+      "lineup": "Impure Wilhelmina, Hey Satan, Blown, De l'Abîme Naît l'Aube, Days of Ruin, Somora",
       "note": "",
       "tickets": "https://www.bandsintown.com/t/108644183?app_id=js_daysofruin.ch&came_from=267&utm_medium=api&utm_source=public_api&utm_campaign=ticket",
-      "url": "https://www.bandsintown.com/e/108644183?app_id=js_daysofruin.ch&came_from=267&utm_medium=api&utm_source=public_api&utm_campaign=event"
+      "url": "https://usineagaz.ch/event/nyons-on-fire-2/"
     },
     {
       "date": "2027-05-14",
