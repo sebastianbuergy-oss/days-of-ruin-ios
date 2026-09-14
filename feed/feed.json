@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-13",
+  "updated": "2026-09-14",
   "message": null,
   "upcoming": [
     {
@@ -70,6 +70,13 @@
     }
   ],
   "news": [
+    {
+      "date": "2026-09-11",
+      "source": "YouTube",
+      "title": "Teaser zur EP „Age of Ignorance“",
+      "text": "Die Band zeigt in einem zweieinhalbminütigen Teaser erste Ausschnitte aus der neuen EP. Sie erscheint am 25. September 2026.",
+      "url": "https://www.youtube.com/watch?v=YE2VnXas-B8"
+    },
     {
       "date": "2026-09-25",
       "source": "Bandcamp",
